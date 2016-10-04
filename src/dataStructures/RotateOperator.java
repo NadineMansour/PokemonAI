@@ -1,8 +1,8 @@
 package dataStructures;
 
-public class Rotate extends Operator{
+public class RotateOperator extends Operator{
 	
-	public Rotate(){
+	public RotateOperator(){
 		
 	}
 	

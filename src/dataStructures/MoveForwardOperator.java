@@ -5,9 +5,9 @@ import java.util.List;
 
 import maze.Cell;
 
-public class MoveForward extends Operator{
+public class MoveForwardOperator extends Operator{
 	
-	public MoveForward(){
+	public MoveForwardOperator(){
 		
 	}
 	
