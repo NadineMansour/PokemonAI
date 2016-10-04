@@ -1,13 +1,20 @@
 package dataStructures;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import maze.Cell;
 
 public class PokemonsProblem extends Problem {
 	
 	Cell destination;
 	
-	public PokemonsProblem(Cell destination) {
+	public PokemonsProblem(Cell initialState, Cell destination, int timeToHatch, List<Cell> pokemons, int direction) {
 		this.destination = destination;
+		this.initialState = new PokemonState(initialState,timeToHatch,pokemons,direction);
+		this.operators = new ArrayList<Operator>();
+		this.operators.add(new MoveForwardOperator());
+		this.operators.add(new RotateOperator());
 	}
 
 	@Override

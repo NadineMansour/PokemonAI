@@ -20,4 +20,10 @@ public class PokemonState extends State{
 		
 	}
 	
+	public PokemonState(Cell location, int timeToHatch, List<Cell> pokemons, int direction){
+		this.location = location;
+		this.timeToHatch = timeToHatch;
+		this.uncollectedPokemons = pokemons;
+		this.direction = direction;
+	}
 }
