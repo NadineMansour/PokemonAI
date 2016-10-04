@@ -28,8 +28,4 @@ public class MoveForwardOperator extends Operator{
 		
 		return result;
 	}
-	
-	boolean canMove(){
-		return false;
-	}
 }
