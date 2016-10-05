@@ -15,17 +15,18 @@ public class MoveForwardOperator extends Operator{
 		int timeToHatch = 0;
 		if(state.timeToHatch > 0)
 		{
-			timeToHatch = state.timeToHatch --;
+			timeToHatch = state.timeToHatch-1;
 		}
-		Cell new_location = move(state.direction,state.location);
-		List<Cell> pokemons = collectPokemon(state.uncollectedPokemons, new_location);
+		Cell newLocation = move(state.direction,state.location);
+		List<Cell> pokemons = collectPokemon(state.uncollectedPokemons, newLocation);
 		
-		State result = new PokemonState(new_location,timeToHatch,pokemons,state.direction);
+		State result = new PokemonState(newLocation,timeToHatch,pokemons,state.direction);
 		return result;
 	}
 
 	static List<Cell> collectPokemon(List<Cell>pokemons, Cell location){
-		List<Cell> result = new ArrayList<Cell>();		
+		List<Cell> result = new ArrayList<Cell>();	
+		/*
 			while(!pokemons.isEmpty())
 			{				
 				if(!pokemons.get(0).equal(location))
@@ -35,7 +36,12 @@ public class MoveForwardOperator extends Operator{
 				else
 					pokemons.remove(0);
 			}			
-	
+		 */
+		for (int i = 0; i < pokemons.size(); i++) {
+			if (!pokemons.get(i).equal(location)) {
+				result.add(pokemons.get(i));
+			}
+		}
 		return result;
 	}
 	
@@ -62,17 +68,6 @@ public class MoveForwardOperator extends Operator{
 			
 		}
 		return result;
-	}
-	public static void main(String[] args)
-	{
-		List<Cell> p = new ArrayList<Cell>();
-		p.add(new Cell(1,1));
-		p.add(new Cell(0,0));
-		p.add(new Cell(1,2));
-		
-		//List<Cell> result = collectPokemon(p, new Cell(0,0));		
-		
-		System.out.println(move(0,p.get(0)));						
 	}
 }
  
