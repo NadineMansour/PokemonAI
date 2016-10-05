@@ -1,11 +1,19 @@
 package dataStructures;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public abstract class Problem {
-	List<Operator> operators;
+	ArrayList<Operator> operators;
 	State initialState;
 	
-	abstract boolean passTheGoalTest(State state);
-	abstract int pathCost(Node node);
+	abstract public boolean passTheGoalTest(State state);
+	abstract public int pathCost(Node node);
+	
+	public State getInitialState(){
+		return this.initialState;
+	}
+	
+	public ArrayList<Operator> getOperators(){
+		return this.operators;
+	}
 }

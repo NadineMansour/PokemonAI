@@ -18,4 +18,8 @@ public class Node {
 		this.depth = d;
 		this.costFromRoot = cost;
 	}
+	
+	public State getState(){
+		return this.state;
+	}
 }
