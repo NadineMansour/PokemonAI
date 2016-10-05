@@ -11,10 +11,10 @@ public class PokemonState extends State{
 	public static final int LEFT = 2;
 	public static final int RIGHT = 3;
 	
-	Cell location;
-	int timeToHatch;
-	List<Cell> uncollectedPokemons;
-	int direction;
+	public Cell location;
+	public int timeToHatch;
+	public List<Cell> uncollectedPokemons;
+	public int direction;
 	
 	public PokemonState(){
 		
