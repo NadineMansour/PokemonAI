@@ -129,7 +129,11 @@ public abstract class MazeGrid {
 			
 			for (int x = 0; x < width; x++) {
 				out.print(verticalWallsExists[rowBase + x] ? '|' : ' ');
-				out.print(' ');
+				if (containsPokemon(new Cell(x,y))) {
+					out.print('#');
+				} else {
+					out.print(' ');
+				}	
 			}
 			out.println(verticalWallsExists[rowBase + width] ? '|' : ' ');
 		}
@@ -184,6 +188,15 @@ public abstract class MazeGrid {
 				createdPokemons++;
 			}
 		}while(createdPokemons<numberOfPokemons);
+	}
+	
+	boolean containsPokemon(Cell location){
+		for (int i = 0; i < pokemonsCells.length; i++) {
+			if (pokemonsCells[i].equal(location)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	

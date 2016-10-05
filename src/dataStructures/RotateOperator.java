@@ -10,7 +10,6 @@ public class RotateOperator extends Operator{
 
 		int dir = changeDirection(state.direction, left, right);
 		State result =  new PokemonState(state.location,state.timeToHatch,state.uncollectedPokemons,dir);
-		
 		return result;
 	}
 
