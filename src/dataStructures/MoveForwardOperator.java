@@ -53,15 +53,15 @@ public class MoveForwardOperator extends Operator{
 			result.setX(currentLocation.getX());
 			result.setY(currentLocation.getY() - 1);
 			break;
-		case 1:
+		case 2:
 			result.setX(currentLocation.getX());
 			result.setY(currentLocation.getY() + 1);
 			break;
-		case 2:
+		case 3:
 			result.setX(currentLocation.getX() - 1);
 			result.setY(currentLocation.getY());
 			break;
-		case 3:
+		case 1:
 			result.setX(currentLocation.getX() + 1);
 			result.setY(currentLocation.getY());
 			break;

@@ -6,7 +6,7 @@ public class RotateOperator extends Operator{
 		
 	}
 	
-	State rotate(PokemonState state, boolean left, boolean right){
+	public State rotate(PokemonState state, boolean left, boolean right){
 
 		int dir = changeDirection(state.direction, left, right);
 		State result =  new PokemonState(state.location,state.timeToHatch,state.uncollectedPokemons,dir);
@@ -21,16 +21,16 @@ public class RotateOperator extends Operator{
 			switch (direction)
 			{
 			case 0:
-				result = 2;
+				result = 3;
 				break;
 			case 1:
-				result = 3;
+				result = 0;
 				break;
 			case 2:
 				result = 1;
 				break;
 			case 3:
-				result = 0;
+				result = 2;
 				break;
 			default :
 				System.out.println("error");
@@ -42,16 +42,16 @@ public class RotateOperator extends Operator{
 			switch (direction)
 			{
 			case 0:
-				result = 3;
+				result = 1;
 				break;
 			case 1:
 				result = 2;
 				break;
 			case 2:
-				result = 0;
+				result = 3;
 				break;
 			case 3:
-				result = 1;
+				result = 0;
 				break;
 			default :
 				System.out.println("error");

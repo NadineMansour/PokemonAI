@@ -7,9 +7,9 @@ import java.util.Random;
 public abstract class MazeGrid {
 	
 	public static final int UP = 0;
-	public static final int DOWN = 1;
-	public static final int LEFT = 2;
-	public static final int RIGHT = 3;
+	public static final int RIGHT = 1;
+	public static final int DOWN = 2;
+	public static final int LEFT = 3;
 	
 	//Random variables
 	Cell startingPoint;
@@ -40,6 +40,32 @@ public abstract class MazeGrid {
 
 	private boolean[] horizntakWallsExists;
 	private boolean[] verticalWallsExists;
+	
+	public boolean hasWall(Cell cell, int direction){
+		boolean result;
+		switch (direction) {
+		case UP:
+			result = horizntakWallsExists[cell.getY()*width + cell.getX()];
+			System.out.println(cell.getY()*width + cell.getX());
+			break;
+		case DOWN:
+			result = horizntakWallsExists[(cell.getY()+1)*width + cell.getX()];
+			System.out.println(((cell.getY()+1)*width + cell.getX()));
+			break;
+		case LEFT:
+			result = verticalWallsExists[((width+1)*cell.getY())+cell.getX()];
+			System.out.println(((width+1)*cell.getY())+cell.getX());
+			break;
+		case RIGHT:
+			result = verticalWallsExists[((width+1)*cell.getY())+cell.getX()+1];
+			System.out.println(((width+1)*cell.getY())+cell.getX()+1);
+			break;
+		default:
+			result =false;
+			break;
+		}
+		return result;
+	}
 	
 	public MazeGrid(int w, int h){
 		this.width = w;

@@ -2,7 +2,7 @@ package maze;
 
 public class Cell {
 	private int x,y;
-	
+	//x --> col  y --> row
 	
 	public int getY() {
 		return y;
