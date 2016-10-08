@@ -6,6 +6,13 @@ import maze.Cell;
 
 public class PokemonState extends State{
 	
+	@Override
+	public String toString() {
+		return "PokemonState [location=" + location + ", timeToHatch="
+				+ timeToHatch + ", uncollectedPokemons=" + uncollectedPokemons.size()
+				+ ", direction=" + direction + "]";
+	}
+
 	public static final int UP = 0;
 	public static final int DOWN = 1;
 	public static final int LEFT = 2;
@@ -26,4 +33,6 @@ public class PokemonState extends State{
 		this.uncollectedPokemons = pokemons;
 		this.direction = direction;
 	}
+	
+	
 }
