@@ -58,4 +58,6 @@ public class Node {
 	public State getState(){
 		return this.state;
 	}
+	
+	
 }
