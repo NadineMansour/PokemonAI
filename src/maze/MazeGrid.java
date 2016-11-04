@@ -1,6 +1,10 @@
 package maze;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -193,6 +197,16 @@ public abstract class MazeGrid {
 		}
 	}
 	
+	public void exportMaze() throws IOException{
+		String filePath = "/Users/NadineMansour/Development/AI/maze.txt";
+		File f = new File(filePath);
+		f.createNewFile();
+		FileWriter fileWriter =  new FileWriter(filePath);
+		PrintWriter printWriter = new PrintWriter(fileWriter);
+		printWriter.println("Nadine");
+		printWriter.println("Mansour");
+		printWriter.close();
+	}
 	private void initRandoms(){
 		int startX, startY, endX, endY;
 		do{
