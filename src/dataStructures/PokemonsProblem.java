@@ -17,12 +17,19 @@ public class PokemonsProblem extends Problem {
 		this.operators.add(new RotateOperator());
 	}
 
+	public Cell getDestination() {
+		return destination;
+	}
+
+	public void setDestination(Cell destination) {
+		this.destination = destination;
+	}
+
 	@Override
 	public
 	boolean passTheGoalTest(State state) {
 		PokemonState pokemonState = (PokemonState)state;
-		if (pokemonState.timeToHatch == 0 && pokemonState.uncollectedPokemons.size() == 0 ) {
-			//&& pokemonState.location.equal(this.destination)
+		if (pokemonState.getTimeToHatch() == 0 && pokemonState.getUncollectedPokemons().size() == 0 && pokemonState.getLocation().equal(this.destination)) {
 			return true;
 		} else {
 			return false;
@@ -32,7 +39,7 @@ public class PokemonsProblem extends Problem {
 	@Override
 	public
 	int pathCost(Node node) {
-		return node.costFromRoot+1;
+		return node.getCostFromRoot()+1;
 	}
 
 }

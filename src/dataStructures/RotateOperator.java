@@ -8,8 +8,8 @@ public class RotateOperator extends Operator{
 	
 	public State rotate(PokemonState state, boolean left, boolean right){
 
-		int dir = changeDirection(state.direction, left, right);
-		State result =  new PokemonState(state.location,state.timeToHatch,state.uncollectedPokemons,dir);
+		int dir = changeDirection(state.getDirection(), left, right);
+		State result =  new PokemonState(state.getLocation(),state.getTimeToHatch(),state.getUncollectedPokemons(),dir);
 		return result;
 	}
 

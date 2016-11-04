@@ -13,30 +13,19 @@ public class MoveForwardOperator extends Operator{
 	
 	public State moveForward(PokemonState state){		
 		int timeToHatch = 0;
-		if(state.timeToHatch > 0)
+		if(state.getTimeToHatch() > 0)
 		{
-			timeToHatch = state.timeToHatch-1;
+			timeToHatch = state.getTimeToHatch()-1;
 		}
-		Cell newLocation = move(state.direction,state.location);
-		List<Cell> pokemons = collectPokemon(state.uncollectedPokemons, newLocation);
+		Cell newLocation = move(state.getDirection(),state.getLocation());
+		List<Cell> pokemons = collectPokemon(state.getUncollectedPokemons(), newLocation);
 		
-		State result = new PokemonState(newLocation,timeToHatch,pokemons,state.direction);
+		State result = new PokemonState(newLocation,timeToHatch,pokemons,state.getDirection());
 		return result;
 	}
 
 	static List<Cell> collectPokemon(List<Cell>pokemons, Cell location){
 		List<Cell> result = new ArrayList<Cell>();	
-		/*
-			while(!pokemons.isEmpty())
-			{				
-				if(!pokemons.get(0).equal(location))
-				{
-					result.add(pokemons.remove(0));
-				}
-				else
-					pokemons.remove(0);
-			}			
-		 */
 		for (int i = 0; i < pokemons.size(); i++) {
 			if (!pokemons.get(i).equal(location)) {
 				result.add(pokemons.get(i));

@@ -41,24 +41,38 @@ public abstract class MazeGrid {
 	private boolean[] horizntakWallsExists;
 	private boolean[] verticalWallsExists;
 	
+	public boolean[] getHorizntakWallsExists() {
+		return horizntakWallsExists;
+	}
+
+	public void setHorizntakWallsExists(boolean[] horizntakWallsExists) {
+		this.horizntakWallsExists = horizntakWallsExists;
+	}
+
+	public boolean[] getVerticalWallsExists() {
+		return verticalWallsExists;
+	}
+
+	public void setVerticalWallsExists(boolean[] verticalWallsExists) {
+		this.verticalWallsExists = verticalWallsExists;
+	}
+
+
+	
 	public boolean hasWall(Cell cell, int direction){
 		boolean result;
 		switch (direction) {
 		case UP:
 			result = horizntakWallsExists[cell.getY()*width + cell.getX()];
-			System.out.println(cell.getY()*width + cell.getX());
 			break;
 		case DOWN:
 			result = horizntakWallsExists[(cell.getY()+1)*width + cell.getX()];
-			System.out.println(((cell.getY()+1)*width + cell.getX()));
 			break;
 		case LEFT:
 			result = verticalWallsExists[((width+1)*cell.getY())+cell.getX()];
-			System.out.println(((width+1)*cell.getY())+cell.getX());
 			break;
 		case RIGHT:
 			result = verticalWallsExists[((width+1)*cell.getY())+cell.getX()+1];
-			System.out.println(((width+1)*cell.getY())+cell.getX()+1);
 			break;
 		default:
 			result =false;
@@ -193,7 +207,7 @@ public abstract class MazeGrid {
 		endingPoint = new Cell(endX,endY);
 		
 		numberOfPokemons = random.nextInt((width*height)/2);
-		timeToHatch = random.nextInt((width*height)/2);
+		timeToHatch = random.nextInt((width*height));
 		
 		pokemonsCells = new Cell[numberOfPokemons];
 		int createdPokemons = 0;
