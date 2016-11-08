@@ -203,8 +203,55 @@ public abstract class MazeGrid {
 		f.createNewFile();
 		FileWriter fileWriter =  new FileWriter(filePath);
 		PrintWriter printWriter = new PrintWriter(fileWriter);
-		printWriter.println("Nadine");
-		printWriter.println("Mansour");
+		//add the width and height
+		printWriter.println("acceptedX(X):- (X>=0 , X<"+this.getWidth()+").");
+		printWriter.println("acceptedY(Y):- (Y>=0 , Y<"+this.getHeight()+").");
+		//add the ending point
+		printWriter.println("endingPoint("+endingPoint.getX()+" , "+endingPoint.getY()+").");
+		//add the time to hatch
+		printWriter.println("timeNeededToHatchTheEgg("+timeToHatch+").");
+		//number of pokemons
+		printWriter.println("numberOfPokemons("+pokemonsCells.length+").");
+		//pokemons
+		String pokemonsList = "pokemonsList([";
+		for (int i = 0; i < pokemonsCells.length; i++) {
+			pokemonsList+=("("+pokemonsCells[i].getX() + " , " + pokemonsCells[i].getY() + ")");
+			if (i < pokemonsCells.length-1) {
+				pokemonsList+=",";
+			}
+		}
+		pokemonsList+="]).";
+		printWriter.println(pokemonsList);
+		//walls
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				if (j>0 && hasWall(new Cell(i, j), UP)) {
+					//j>0 && 
+					printWriter.println("wallBetween("+i+" , "+j+" , "+ i +" , "+ (j-1) +").");
+				}
+				if (i< (width-1) && hasWall(new Cell(i, j), RIGHT)) {
+					//i< (width-1) &&
+					printWriter.println("wallBetween("+i+" , "+j+" , "+ (i+1) +" , "+ j +").");
+				}
+				if (j< (height-1) && hasWall(new Cell(i, j), DOWN)) {
+					//j< (height-1) && 
+					printWriter.println("wallBetween("+i+" , "+j+" , "+ i +" , "+ (j+1) +").");
+				}
+				if (i>0 && hasWall(new Cell(i, j), LEFT)) {
+					//i>0 &&
+					printWriter.println("wallBetween("+i+" , "+j+" , "+ (i-1) +" , "+ j +").");
+				}
+			}
+		}
+		//add the starting point -- The only fluent we have 
+		printWriter.println("atHelper("+
+						startingPoint.getX() +
+						" , "+ startingPoint.getY() +
+						" , "+timeToHatch + 
+						" , "+ pokemonsCells.length +
+						" , "+ "[]"+
+						" , "+ "s_0"+
+						").");
 		printWriter.close();
 	}
 	private void initRandoms(){
